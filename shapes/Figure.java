@@ -15,7 +15,7 @@ public abstract class Figure implements Shape {
     protected abstract void input();
 
     protected double askUserInput(InputChecker checker, String message, char fillCharacter) {
-        String inp = new InputHelper().getInput(message);
+        String inp = InputHelper.getInput(message);
 
         try {
             checker.checkInput(inp);
