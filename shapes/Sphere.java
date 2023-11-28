@@ -1,15 +1,12 @@
 package Task22.shapes;
 
-import Task22.shapes.Figure;
-import Task22.shapes.InputChecker;
-
 import java.util.Scanner;
 
 public class Sphere extends Figure {
     private double radius;
 
-    public Sphere(Scanner scanner) {
-        super(scanner);
+    public Sphere() {
+        super();
     }
 
 
@@ -24,9 +21,9 @@ public class Sphere extends Figure {
     }
 
     @Override
-    protected void input(Scanner scanner) {
+    protected void input() {
         InputChecker checker = new InputChecker();
         System.out.println(" -----  сфера  -----\n");
-        this.radius = askUserInput(scanner, checker, "Введите радиус: ", '-');
+        this.radius = askUserInput(checker, "Введите радиус: ", '-');
     }
 }

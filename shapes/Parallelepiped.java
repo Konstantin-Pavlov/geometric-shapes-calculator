@@ -1,7 +1,5 @@
 package Task22.shapes;
 
-import Task22.shapes.exceptions.NegativeValueException;
-
 import java.util.Scanner;
 
 public class Parallelepiped extends Figure {
@@ -9,8 +7,8 @@ public class Parallelepiped extends Figure {
     private double width;
     private double height;
 
-    public Parallelepiped(Scanner scanner) {
-        super(scanner);
+    public Parallelepiped() {
+        super();
     }
 
     @Override
@@ -25,14 +23,14 @@ public class Parallelepiped extends Figure {
 
 
     @Override
-    protected void input(Scanner scanner) {
+    protected void input() {
         InputChecker checker = new InputChecker();
 
         System.out.println(" -----  параллелепипед  -----\n");
 
-        this.length = askUserInput(scanner, checker, "Введите длину: ", '-');
-        this.width = askUserInput(scanner, checker, "Введите ширину: ", '-');
-        this.height = askUserInput(scanner, checker, "Введите высоту: ", '-');
+        this.length = askUserInput(checker, "Введите длину: ", '-');
+        this.width = askUserInput(checker, "Введите ширину: ", '-');
+        this.height = askUserInput(checker, "Введите высоту: ", '-');
 
     }
 

@@ -2,18 +2,28 @@ package Task22.shapes;
 
 import Task22.shapes.exceptions.NegativeValueException;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public abstract class Figure implements Shape {
-    public Figure(Scanner scanner) {
-        input(scanner);
+    public Figure() {
+        input();
     }
 
-    protected abstract void input(Scanner scanner);
+    protected abstract void input();
 
-    protected double askUserInput(Scanner scanner, InputChecker checker, String message, char fillCharacter) {
+    protected double askUserInput(InputChecker checker, String message, char fillCharacter) {
         System.out.print(message);
-        String inp = scanner.nextLine();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//        String inp = scanner.nextLine();
+        String inp = null;
+        try {
+            inp = reader.readLine();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         try {
             checker.checkInput(inp);
         } catch (NegativeValueException | NumberFormatException e) {
@@ -22,7 +32,7 @@ public abstract class Figure implements Shape {
             e.printStackTrace();
             oneSecondPause(); // иначе вывод немного перемешается
             drawLine('-', 50, true);
-            return askUserInput(scanner, checker, message, fillCharacter);
+            return askUserInput(checker, message, fillCharacter);
         }
         return Double.parseDouble(inp);
     }

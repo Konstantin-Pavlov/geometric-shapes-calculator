@@ -6,16 +6,16 @@ public class Cylinder extends Figure {
     private double h;
     private double radius;
 
-    public Cylinder(Scanner scanner) {
-        super(scanner);
+    public Cylinder() {
+        super();
     }
 
     @Override
-    protected void input(Scanner scanner) {
+    protected void input() {
         InputChecker checker = new InputChecker();
         System.out.println(" -----  цилиндр  -----\n");
-        this.h = askUserInput(scanner, checker, "Введите h (высота): ", '-');
-        this.radius = askUserInput(scanner, checker, "Введите радиус: ", '-');
+        this.h = askUserInput(checker, "Введите h (высота): ", '-');
+        this.radius = askUserInput(checker, "Введите радиус: ", '-');
     }
 
     @Override

@@ -6,16 +6,16 @@ public class Cone extends Figure {
     private double h;
     private double radius;
 
-    public Cone(Scanner scanner) {
-        super(scanner);
+    public Cone() {
+        super();
     }
 
     @Override
-    protected void input(Scanner scanner) {
+    protected void input() {
         InputChecker checker = new InputChecker();
         System.out.println(" -----  конус  -----\n");
-        this.h = askUserInput(scanner, checker, "Введите h (высота): ", '-');
-        this.radius = askUserInput(scanner, checker, "Введите радиус: ", '-');
+        this.h = askUserInput(checker, "Введите h (высота): ", '-');
+        this.radius = askUserInput(checker, "Введите радиус: ", '-');
     }
 
     @Override
