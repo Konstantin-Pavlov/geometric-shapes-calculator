@@ -6,6 +6,8 @@ public class Main {
     }
 
     private static void run() {
+        InputHelper helper = new InputHelper();
+
         Sphere sphere = new Sphere();
         System.out.println("площадь сферы: " + sphere.getArea());
         System.out.println("объём сферы: " + sphere.getVolume());
@@ -24,6 +26,7 @@ public class Main {
         Cone cone = new Cone();
         System.out.println("площадь конуса: " + cone.getArea());
         System.out.println("объём конуса: " + cone.getVolume());
-        System.out.println();
+
+        helper.closeBufferedReader();
     }
 }

@@ -15,15 +15,8 @@ public abstract class Figure implements Shape {
     protected abstract void input();
 
     protected double askUserInput(InputChecker checker, String message, char fillCharacter) {
-        System.out.print(message);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//        String inp = scanner.nextLine();
-        String inp = null;
-        try {
-            inp = reader.readLine();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        String inp = new InputHelper().getInput(message);
+
         try {
             checker.checkInput(inp);
         } catch (NegativeValueException | NumberFormatException e) {
